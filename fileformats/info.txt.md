@@ -58,4 +58,15 @@ The data in the info.txt file is stored in a modified key/value format with each
     <td>string</td>
   </tr>
 </table>
- 
+
+## Sample File
+
+    Serial Number: MOS1C16110020
+    Firmware: 2.2.0
+    Battery Voltage: 4.25
+    Sample Rate: 30
+    Start Date: 634556532600000000
+    Stop Date: 0
+    Download Date: 634570285571111563
+    Board Revision: 2
+    Subject Name: josfew2342
