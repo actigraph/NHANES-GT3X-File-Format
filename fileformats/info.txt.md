@@ -2,7 +2,9 @@
 
 info.txt is a plain text file that contains key items to help parse activity data
 
-The data in the info.txt file is stored in a modified key/value format with each item stored on a new line. The items are stored as "{key}: {value}" without the quotes.
+The data in the info.txt file is stored in a modified key/value format with each item stored on a new line. 
+
+The items are stored as "{key}: {value}" without the quotes.
 
 ##Items in the File
 
