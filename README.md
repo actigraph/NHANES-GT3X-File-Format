@@ -2,7 +2,7 @@
 
 * **Document #:** 
 * **Revision:** A [changelog](changelog.md)
-* **Revision Date:** 2013-12-23
+* **Revision Date:** 
 
 **Prepared By:**
 
@@ -15,62 +15,73 @@ This documentation and sample library provide information on getting activity da
 
 ## File Format
 
-The .gt3x file is a zip archive that has the following contents:
+The .gt3x file is a zip archive contains several files needed to parse activity data. Click on a file for detailed information.
 
 <table>
   <tr>
     <th>FileName</th>
-    <th>Description of File</th>
+    <th>Description</th>
+	<th>Size</th>
 	<th>Used in Parsing?</th>
   </tr>
   <tr>
-    <td>activity.bin</td>
+    <td><a href="fileformats/activity.bin.md">activity.bin</a></td>
     <td>Binary Activity Data Log</td>
+	<td>Up to 237.5 MB</td>
 	<td>Yes</td>
   </tr>
   <tr>
     <td>battery.bin</td>
     <td>Binary Battery Data Log</td>
+	<td>Up to 256 kB</td>
 	<td>No</td>
   </tr>
   <tr>
-    <td>eeprom.bin</td>
+    <td><a href="fileformats/eeprom.bin.md">eeprom.bin</a></td>
     <td>EEPROM device contents</td>
+	<td>2 kB</td>
 	<td>Yes</td>
   </tr>
   <tr>
     <td>firmware.bin</td>
     <td>Firmware Update Storage</td>
+	<td>128 kB</td>
 	<td>No</td>
   </tr>
   <tr>
     <td>gt3xplus.ico</td>
     <td>Windows Drive Icon</td>
+	<td>9,662 bytes</td>
 	<td>No</td>
   </tr>
   <tr>
-    <td>info.txt</td>
+    <td><a href="fileformats/info.txt.md">info.txt</a></td>
     <td>Device information including start date and download date.</td>
+	<td>No limit (usually less than 1 kB)</td>
 	<td>Yes</td>
   </tr>
   <tr>
     <td>log.txt</td>
     <td>Firmware Diagnostics Log</td>
+	<td>Up to 128 kB</td>
 	<td>No</td>
   </tr>
   <tr>
-    <td>lux.bin</td>
+    <td><a href="fileformats/lux.bin.md">lux.bin</a></td>
     <td>Binary Lux Data Log</td>
+	<td>Up to 3.5 MB</td>
 	<td>Yes</td>
   </tr>
   <tr>
     <td>metadata</td>
     <td>Subject Biometric Data</td>
+	<td>128 kB</td>
 	<td>No</td>
   </tr>
   <tr>
-    <td>ram.bin/td>
+    <td>ram.bin</td>
     <td>Microcontroller RAM contents</td>
+	<td>Up to 128 kB</td>
 	<td>No</td>
   </tr>
 </table>
