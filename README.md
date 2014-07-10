@@ -37,10 +37,10 @@ The .gt3x file is a zip archive contains several files needed to parse activity 
 	<td>No</td>
   </tr>
   <tr>
-    <td><a href="fileformats/eeprom.bin.md">eeprom.bin</a></td>
+    <td>eeprom.bin</td>
     <td>EEPROM device contents</td>
 	<td>2 kB</td>
-	<td>Yes</td>
+	<td>No</td>
   </tr>
   <tr>
     <td>firmware.bin</td>
