@@ -4,7 +4,7 @@ This sample library is written in C# and can be easily referenced in any .NET ap
 
 **Notes:**
 
-* This library is only valid for .gt3x files that were downloaded from GT3X+ devices with serial numbers that start with "NEO" and have a firmware version of 2.5.0 or earlier
+* This library is only valid for .gt3x files that were downloaded from GT3X+ devices with serial numbers that start with "NEO"  or ActiSleep+ devices with serial numbers that start with "MRA." The devices must have a firmware version of 2.5.0 or earlier.
 
 ## .NET Ticks
 [.NET Ticks](http://msdn.microsoft.com/en-us/library/system.datetime.ticks.aspx) are used in the info.txt file to store DateTimes.
