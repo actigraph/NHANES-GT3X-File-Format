@@ -1,6 +1,6 @@
 # lux.bin Format
 
-lux.bin file is a binary file that stores the lux readings from the device
+The lux.bin file is a binary file that stores the lux readings from the device.
 
 Light readings are stored continuously for every second the device is recording in ushort (16-bit unsigned integer) values in [little endian format](http://en.wikipedia.org/wiki/Endianness).
 
