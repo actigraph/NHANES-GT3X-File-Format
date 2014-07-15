@@ -270,17 +270,20 @@ namespace GT3X.Parsing.Library
             while (stream.Position < stream.Length)
             {
                 if (stream.Position < stream.Length - 1)
-                    luxBytes[0] = (byte)stream.ReadByte();
+                    luxBytes[0] = (byte) stream.ReadByte();
                 else
-                    yield return 0;
+                    yield break;
 
                 if (stream.Position < stream.Length - 1)
                     luxBytes[1] = (byte)stream.ReadByte();
                 else
-                    yield return 0;
+                    yield break;
 
                 if (luxBytes[0] == 255 && luxBytes[1] == 255)
+                {
                     yield return 0;
+                    continue;
+                }
 
                 double lux = BitConverter.ToUInt16(luxBytes, 0);
 
