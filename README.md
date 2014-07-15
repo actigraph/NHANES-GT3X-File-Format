@@ -101,3 +101,11 @@ The .gt3x file is a zip archive contains several files needed to parse activity 
 9. Optional: calculate total number of samples by multiplying the file size (in bytes) of the activity.bin file with 8 (bits per byte) and then dividing by 36 (bits per sample).
 10. Open a stream connection to the extracted activity.bin file from #5 and [parse the activity data](fileformats/activity.bin.md).
 11. Optional: Open a stream connection to the extracted lux.bin file from #5 and [parse the light data](fileformats/lux.bin.md).
+
+## Tools Used to Prepare Documentation and Library ##
+- [MarkdownPad](http://markdownpad.com/ "MarkdownPad site") for documentation
+- [LinqPad](http://www.linqpad.net/ "Linqpad site") for quick C# parsing
+- [xUnit.net](https://github.com/xunit/xunit "xunit site") for unit tests
+- [DotNetZip](https://github.com/haf/DotNetZip.Semverd/ "dotnetzip site") for easy .NET zip file parsing
+- [Visual Studio](http://www.visualstudio.com/ "visual studio site") for library creation and testing 
+- [ReSharper](http://www.jetbrains.com/resharper/ "resharper site") for improved productivity in Visual Studio and unit test runner.
