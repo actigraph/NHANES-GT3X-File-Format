@@ -36,7 +36,7 @@ We have a .gt3x file with the following information:
 1. The device used to record the data was a GT3X+ (serial number starts with "NEO")
 2. Device started recording at 2008/3/29 12:00:00
 3. Device recorded 5 seconds of data
-4. The data from the lux.bin file is: "00001300FFFF98084C44"
+4. The data from the lux.bin file is: "00001300FFFF98084C04"
 
 <table>
   <tr>
@@ -50,7 +50,7 @@ We have a .gt3x file with the following information:
   <tr>
 	<td>2008/3/29 12:00:00</td>
     <td>0x00 0x00</td>
-	<td>65535</td>
+	<td>0</td>
     <td>1.25</td>
 	<td>0</td>
 	<td>Special condition 1</td>
@@ -81,7 +81,7 @@ We have a .gt3x file with the following information:
   </tr>
   <tr>
     <td>2008/3/29 12:00:04</td>
-    <td>0x4C 0x04</td>
+    <td>0x4C 0x44</td>
 	<td>1100</td>
     <td>1.25</td>
 	<td>1375</td>
