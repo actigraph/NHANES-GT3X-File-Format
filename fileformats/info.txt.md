@@ -31,7 +31,7 @@ The items are stored as "{key}: {value}" without the quotes.
   </tr>
   <tr>
     <td>Sample Rate</td>
-    <td>The sample rate (in hz) that the device was initialized in.</td>
+    <td>The sample rate (in hz) that the device was initialized in. ActiGraph devices record at 30, 40, 50, 60, 70, 80, 90, and 100 Hz.</td>
     <td>double</td>
   </tr>
   <tr>
