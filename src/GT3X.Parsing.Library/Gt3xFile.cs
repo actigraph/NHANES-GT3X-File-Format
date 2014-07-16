@@ -102,7 +102,7 @@ namespace GT3X.Parsing.Library
                     while (stream.EndOfStream == false)
                     {
                         string line = stream.ReadLine();
-                        if (line != null)
+                        if (!string.IsNullOrEmpty(line))
                         {
                             string[] temp = line.Split(':');
                             if (temp.Length > 1)
