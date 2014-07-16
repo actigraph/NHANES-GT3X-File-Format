@@ -277,15 +277,15 @@ namespace GT3X.Parsing.Library.Tests
 
             int counter = 0;
 
-            List<AccelerationSample> samples = new List<AccelerationSample>(3)
+            List<AccelerationSample> expectedSamples = new List<AccelerationSample>(3)
             {
                 new AccelerationSample(0.023, 0.018, -0.947),
                 new AccelerationSample(0.026, 0.021, -0.941),
                 new AccelerationSample(0.023, 0.021, -0.941)
             };
 
-            foreach (AccelerationSample sample in g.ActivityEnumerator())
-                Assert.Equal(samples[counter++], sample);
+            foreach (AccelerationSample actualSample in g.ActivityEnumerator())
+                Assert.Equal(expectedSamples[counter++], actualSample);
         }
 
         [Fact]
@@ -352,16 +352,22 @@ namespace GT3X.Parsing.Library.Tests
 
             var g = new Gt3XFile(_filename);
 
-            List<double> luxSamples = new List<double>(5) {0, 0, 0, 2500, 1375};
+            List<double> expectedLux = new List<double>(5) 
+            {
+                0, 
+                0, 
+                0, 
+                2500, 
+                1375
+            };
 
             int counter = 0;
-            foreach (double lux in g.LuxEnumerator())
-                Assert.Equal(luxSamples[counter++], lux);
+            foreach (double actualLux in g.LuxEnumerator())
+                Assert.Equal(expectedLux[counter++], actualLux);
         }
 
         private static void CreateInfoTxtFile(bool addSampleRate, bool addStartDate, bool addSerialNumber)
         {
-            //sample rate, start date and serial number
             using (var file = new StreamWriter(INFO_TXT))
             {
                 if (addSerialNumber) file.WriteLine("Serial Number: NEO1C16110020");
