@@ -17,6 +17,11 @@ namespace GT3X.Parsing.Examples
             InitializeComponent();
             buttonOpenFile.Click += (sender, args) => OpenFile();
             buttonExport.Click += (sender, args) => ExportFile();
+            this.HandleCreated += (sender, args) =>
+            {
+                comboBoxData.SelectedIndex = 0;
+                comboBoxFormat.SelectedIndex = 0;
+            };
         }
 
         private void ExportFile()
@@ -39,7 +44,7 @@ namespace GT3X.Parsing.Examples
 
             using (var savefile = new SaveFileDialog())
             {
-                savefile.Filter = radioButtonCSV.Checked ? "CSV File (*.csv)|*.csv" : "JSON File (*.json)|*.json";
+                savefile.Filter = comboBoxFormat.SelectedIndex == 0 ? "CSV File (*.csv)|*.csv" : "JSON File (*.json)|*.json";
                 savefile.Title = "Save Export";
                 if (savefile.ShowDialog() != DialogResult.OK)
                     return;
@@ -49,27 +54,27 @@ namespace GT3X.Parsing.Examples
 
             using (var writer = new StreamWriter(exportFileName))
             {
-                if (radioButtonActivity.Checked)
+                if (comboBoxData.SelectedIndex == 0)
                 {
-                    if (radioButtonJSON.Checked)
-                        writer.Write(JsonConvert.SerializeObject(g.ActivityEnumerator(), Formatting.Indented));
-                    else
+                    if (comboBoxFormat.SelectedIndex == 0)
                     {
                         var csv = new CsvWriter(writer);
                         csv.Configuration.RegisterClassMap<AcclererationClassMap>();
                         csv.WriteRecords(g.ActivityEnumerator());
                     }
+                    else if (comboBoxFormat.SelectedIndex == 1)
+                        writer.Write(JsonConvert.SerializeObject(g.ActivityEnumerator(), Formatting.Indented));
                 }
-                else if (radioButtonLux.Checked)
+                else if (comboBoxData.SelectedIndex == 1)
                 {
-                    if (radioButtonJSON.Checked)
-                        writer.Write(JsonConvert.SerializeObject(g.LuxEnumerator(), Formatting.Indented));
-                    else
+                    if (comboBoxFormat.SelectedIndex == 0)
                     {
                         var csv = new CsvWriter(writer);
                         csv.Configuration.RegisterClassMap<LuxClassMap>();
                         csv.WriteRecords(g.LuxEnumerator());
                     }
+                    else if (comboBoxFormat.SelectedIndex == 1)
+                        writer.Write(JsonConvert.SerializeObject(g.LuxEnumerator(), Formatting.Indented));
                 }
             }
 
