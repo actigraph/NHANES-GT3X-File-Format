@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GT3X.Parsing.Library", "GT3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GT3X.Parsing.Library.Tests", "GT3X.Parsing.Library.Tests\GT3X.Parsing.Library.Tests.csproj", "{3ED03BC6-B830-416D-B36B-4F401162727B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GT3X.Parsing.Examples", "GT3X.Parsing.Examples\GT3X.Parsing.Examples.csproj", "{093275A3-8F6C-4366-A9A1-E35EAF715ED1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3ED03BC6-B830-416D-B36B-4F401162727B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ED03BC6-B830-416D-B36B-4F401162727B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ED03BC6-B830-416D-B36B-4F401162727B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{093275A3-8F6C-4366-A9A1-E35EAF715ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{093275A3-8F6C-4366-A9A1-E35EAF715ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{093275A3-8F6C-4366-A9A1-E35EAF715ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{093275A3-8F6C-4366-A9A1-E35EAF715ED1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
