@@ -109,3 +109,5 @@ The .gt3x file is a zip archive contains several files needed to parse activity 
 - [DotNetZip](https://github.com/haf/DotNetZip.Semverd/ "dotnetzip site") for easy .NET zip file parsing
 - [Visual Studio](http://www.visualstudio.com/ "visual studio site") for library creation and testing 
 - [ReSharper](http://www.jetbrains.com/resharper/ "resharper site") for improved productivity in Visual Studio and unit test runner.
+- [Json.NET](http://james.newtonking.com/json "json dot net site") for amazing JSON usability in .NET.
+- [CsvHelper](https://github.com/JoshClose/CsvHelper "csv helper site") to help write CSV files quickly.
