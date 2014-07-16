@@ -1,16 +1,19 @@
 using System;
+using CsvHelper.Configuration;
 
 namespace GT3X.Parsing.Library
 {
     public class AccelerationSample : IEquatable<AccelerationSample>
     {
-        public readonly double X;
-        public readonly double Y;
-        public readonly double Z;
+        public DateTime Timestamp { get; private set; }
+        public double X { get; private set; }
+        public double Y { get; private set; }
+        public double Z { get; private set; }
+
 
         public override string ToString()
         {
-            return string.Format("Y = {0} | X = {1} | Z = {2}", Y, X, Z);
+            return string.Format("{3:G} - Y = {0} | X = {1} | Z = {2}", Y, X, Z, Timestamp);
         }
 
         bool IEquatable<AccelerationSample>.Equals(AccelerationSample other)
@@ -18,30 +21,12 @@ namespace GT3X.Parsing.Library
             return Equals(other);
         }
 
-        public AccelerationSample()
-        {
-            X = Y = Z = 0.0;
-        }
-
-        public AccelerationSample(double x, double y, double z)
+        public AccelerationSample(double x, double y, double z, DateTime timestamp)
         {
             X = x;
             Y = y;
             Z = z;
-        }
-
-        public AccelerationSample(double[] sample)
-        {
-            X = sample[1];
-            Y = sample[0];
-            Z = sample[2];
-        }
-
-        public bool Equals(AccelerationSample other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return X.Equals(other.X) && Y.Equals(other.Y) && Z.Equals(other.Z);
+            Timestamp = timestamp;
         }
 
         public override bool Equals(object obj)
@@ -49,7 +34,7 @@ namespace GT3X.Parsing.Library
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((AccelerationSample) obj);
+            return Equals(obj);
         }
 
         public override int GetHashCode()
@@ -59,6 +44,7 @@ namespace GT3X.Parsing.Library
                 int hashCode = X.GetHashCode();
                 hashCode = (hashCode*397) ^ Y.GetHashCode();
                 hashCode = (hashCode*397) ^ Z.GetHashCode();
+                hashCode = (hashCode*397) ^ Timestamp.GetHashCode();
                 return hashCode;
             }
         }
@@ -71,6 +57,20 @@ namespace GT3X.Parsing.Library
         public static bool operator !=(AccelerationSample left, AccelerationSample right)
         {
             return !Equals(left, right);
+        }
+    }
+
+    /// <summary> This helps create the CSV output in the format we want </summary>
+    public sealed class AcclererationClassMap : CsvClassMap<AccelerationSample>
+    {
+        public AcclererationClassMap()
+        {
+            //set the timestamp format to include milliseconds
+            Map(m => m.Timestamp).Index(0).TypeConverterOption("yyyy/MM/dd HH:mm:ss.fff");
+            Map(m => m.Y).Index(1);
+            Map(m => m.X).Index(2);
+            Map(m => m.Z).Index(3);
+
         }
     }
 }

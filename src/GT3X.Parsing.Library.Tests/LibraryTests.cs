@@ -228,9 +228,12 @@ namespace GT3X.Parsing.Library.Tests
 
             var g = new Gt3XFile(_filename);
 
-            AccelerationSample zeros = new AccelerationSample(0, 0, 0);
             foreach (AccelerationSample sample in g.ActivityEnumerator())
-                Assert.Equal(zeros, sample);
+            {
+                Assert.Equal(0, sample.X);
+                Assert.Equal(0, sample.Y);
+                Assert.Equal(0, sample.Z);
+            }
         }
 
         
@@ -279,13 +282,19 @@ namespace GT3X.Parsing.Library.Tests
 
             List<AccelerationSample> expectedSamples = new List<AccelerationSample>(3)
             {
-                new AccelerationSample(0.023, 0.018, -0.947),
-                new AccelerationSample(0.026, 0.021, -0.941),
-                new AccelerationSample(0.023, 0.021, -0.941)
+                new AccelerationSample(0.023, 0.018, -0.947, DateTime.MinValue),
+                new AccelerationSample(0.026, 0.021, -0.941, DateTime.MinValue),
+                new AccelerationSample(0.023, 0.021, -0.941, DateTime.MinValue)
             };
 
             foreach (AccelerationSample actualSample in g.ActivityEnumerator())
-                Assert.Equal(expectedSamples[counter++], actualSample);
+            {
+                Assert.Equal(expectedSamples[counter].X, actualSample.X);
+                Assert.Equal(expectedSamples[counter].Y, actualSample.Y);
+                Assert.Equal(expectedSamples[counter].Z, actualSample.Z);
+
+                counter++;
+            }
         }
 
         [Fact]
@@ -311,8 +320,8 @@ namespace GT3X.Parsing.Library.Tests
 
             var g = new Gt3XFile(_filename);
 
-            foreach (double lux in g.LuxEnumerator())
-                Assert.Equal(0, lux);
+            foreach (var sample in g.LuxEnumerator())
+                Assert.Equal(0, sample.Lux);
         }
 
         [Fact]
@@ -362,8 +371,8 @@ namespace GT3X.Parsing.Library.Tests
             };
 
             int counter = 0;
-            foreach (double actualLux in g.LuxEnumerator())
-                Assert.Equal(expectedLux[counter++], actualLux);
+            foreach (var luxSample in g.LuxEnumerator())
+                Assert.Equal(expectedLux[counter++], luxSample.Lux);
         }
 
         private static void CreateInfoTxtFile(bool addSampleRate, bool addStartDate, bool addSerialNumber)

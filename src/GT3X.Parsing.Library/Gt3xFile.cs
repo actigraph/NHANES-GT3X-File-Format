@@ -178,7 +178,7 @@ namespace GT3X.Parsing.Library
 
         /// <summary> Get all lux samples for a gt3x file. </summary>
         /// <returns>Lux samples.</returns>
-        public IEnumerable<double> LuxEnumerator()
+        public IEnumerable<LuxSample> LuxEnumerator()
         {
             if (TypeOfDevice == DeviceType.Unknown)
                 yield break;
@@ -206,6 +206,8 @@ namespace GT3X.Parsing.Library
 
             int current = 0;
 
+            var timestampHelper = new TimestampHelper(1000, SampleRateInHz);
+            long milliSeconds = 0;
             while (true)
             {
                 for (int axis = 0; axis < 3; ++axis)
@@ -253,19 +255,25 @@ namespace GT3X.Parsing.Library
                 sample[1] = Math.Round(sample[1], 3, MidpointRounding.AwayFromZero);
                 sample[2] = Math.Round(sample[2], 3, MidpointRounding.AwayFromZero);
 
-                yield return new AccelerationSample(sample);
+                yield return
+                    new AccelerationSample(sample[1], sample[0], sample[2],
+                        FirstSample.AddTicks(milliSeconds*TimeSpan.TicksPerMillisecond));
+
+                milliSeconds += timestampHelper.Next();
             }
         }
 
         /// <summary> Parse lux data from a stream of data. </summary>
         /// <param name="stream">The lux.bin stream to parse.</param>
         /// <returns>All lux values in a stream.</returns>
-        private IEnumerable<double> ParseLux(Stream stream)
+        private IEnumerable<LuxSample> ParseLux(Stream stream)
         {
             if (!stream.CanRead)
                 throw new Exception("Unable to read from lux stream.");
 
             var luxBytes = new byte[2];
+
+            int secondsCounter = 0;
 
             while (stream.Position < stream.Length)
             {
@@ -279,19 +287,22 @@ namespace GT3X.Parsing.Library
                 else
                     yield break;
 
+                double lux;
+                
                 if (luxBytes[0] == 255 && luxBytes[1] == 255)
-                {
-                    yield return 0;
-                    continue;
-                }
-
-                double lux = BitConverter.ToUInt16(luxBytes, 0);
+                    lux = 0;
+                else
+                    lux = BitConverter.ToUInt16(luxBytes, 0);
 
                 if (lux < 20.0)
                     lux = 0.0;
                 else
                     lux = Math.Min(lux * LuxScaleFactor, LuxMaxValue);
-                yield return lux;
+
+                //round to nearest integer
+                lux = Math.Round(lux, MidpointRounding.AwayFromZero);
+
+                yield return new LuxSample(lux, this.FirstSample.AddSeconds(secondsCounter++));
             }
         }
     }
