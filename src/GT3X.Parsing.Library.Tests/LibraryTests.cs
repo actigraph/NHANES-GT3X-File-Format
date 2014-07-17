@@ -6,7 +6,7 @@ using Ionic.Zip;
 
 namespace GT3X.Parsing.Library.Tests
 {
-    public class LibraryTests : IDisposable
+    public sealed class LibraryTests : IDisposable
     {
         private string _filename;
         const string ACTIVITY_BIN = "activity.bin";

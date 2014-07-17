@@ -6,6 +6,7 @@ namespace GT3X.Parsing.Library
     /// <summary>
     /// Exception that is fired when the file passed in doesn't exists
     /// </summary>
+    [Serializable]
     public class FileDoesNotExist : IOException
     {
         public FileDoesNotExist(string message, string filepath = "") :
@@ -18,6 +19,7 @@ namespace GT3X.Parsing.Library
     /// <summary>
     /// Exception that is fired when the file passed in isn't a zip file
     /// </summary>
+    [Serializable]
     public class FileIsNotAZipFile : IOException
     {
         public FileIsNotAZipFile(string message, string filepath = "") :
@@ -30,6 +32,7 @@ namespace GT3X.Parsing.Library
     /// <summary>
     /// Exception that is fired when the zip file passed in has missing required files.
     /// </summary>
+    [Serializable]
     public class MissingRequiredFiles : IOException
     {
         public MissingRequiredFiles(string message, string filepath = "") :
@@ -42,6 +45,7 @@ namespace GT3X.Parsing.Library
     /// <summary>
     /// Exception that is fired when the info.txt file in the zip file contains invalid data.
     /// </summary>
+    [Serializable]
     public class InvalidInfoFile : IOException
     {
         public InvalidInfoFile(string message, string filepath = "") :
