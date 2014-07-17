@@ -1,13 +1,11 @@
 # ActiGraph NHANES .gt3x File Format
 
-* **Document #:** 
-* **Revision:** A [changelog](changelog.md)
-* **Revision Date:** 
-
 **Prepared By:**
 
-* [Brian Bell](https://github.com/brianbell) - Software Manager
-* [Daniel Judge](https://github.com/dwjref) - Software Developer
+* [Daniel Judge](https://github.com/dwjref "Daniel's GitHub Profile") - Software Engineer
+* [Judge Maygarden](https://github.com/jmaygarden "Judge's GitHub Profile") - Hardware/Firmware Engineer
+
+**Last Update:** 2014-07-17
 
 ## Introduction
 
