@@ -66,7 +66,7 @@ namespace GT3X.Parsing.Library
         public AcclererationClassMap()
         {
             //set the timestamp format to include milliseconds
-            Map(m => m.Timestamp).Index(0).TypeConverterOption("yyyy/MM/dd HH:mm:ss.fff");
+            Map(m => m.Timestamp).Index(0).TypeConverterOption("yyyy-MM-dd HH:mm:ss.fff");
             Map(m => m.Y).Index(1);
             Map(m => m.X).Index(2);
             Map(m => m.Z).Index(3);
