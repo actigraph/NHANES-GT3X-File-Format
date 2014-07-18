@@ -9,7 +9,7 @@
 
 ## Introduction
 
-This documentation and sample library provide information on getting activity data out of ActiGraph .gt3x files that were used in the [NHANES](http://www.cdc.gov/nchs/nhanes.htm) project. 
+This documentation and sample library provide information on getting activity data out of [ActiGraph](http://www.actigraphcorp.com/ "ActiGraph site") .gt3x files that were used in the [NHANES](http://www.cdc.gov/nchs/nhanes.htm) project. 
 
 ## File Format
 
