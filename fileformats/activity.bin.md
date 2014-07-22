@@ -145,3 +145,77 @@ We have a .gt3x file with the following information:
 </table>
 
 *binary values that are have <s>strikethrough</s> are the nibbles that are ignored.
+
+## C# Source Code Example ##
+See the method ParseAcceleration(Stream stream) in [Gt3xFile.cs](../blob/master/src/GT3X.Parsing.Library/Gt3xFile.cs)
+
+    /// <summary> Parse activity data from a stream of data </summary>
+	/// <param name="stream">The activity.bin stream of data to parse.</param>
+	/// <returns>All of the activity samples in a stream.</returns>
+	private IEnumerable<AccelerationSample> ParseAcceleration(Stream stream)
+	{
+	    if (!stream.CanRead)
+	        throw new Exception("Unable to read from activity stream.");
+	
+	    double[] sample = new double[3];
+	    int offset = 0;
+	
+	    int current = 0;
+	
+	    var timestampHelper = new TimestampHelper(1000, SampleRateInHz);
+	    long milliSeconds = 0;
+	    while (true)
+	    {
+	        for (int axis = 0; axis < 3; ++axis)
+	        {
+	            UInt16 shifter;
+	
+	            if (0 == (offset & 0x7))
+	            {
+	                current = stream.ReadByte();
+	                if (current == -1)
+	                {
+	                    yield break;
+	                }
+	                shifter = (UInt16)((current & 0xFF) << 4);
+	                offset += 8;
+	
+	                current = stream.ReadByte();
+	                if (current == -1)
+	                {
+	                    yield break;
+	                }
+	                shifter |= (UInt16)((current & 0xF0) >> 4);
+	                offset += 4;
+	            }
+	            else
+	            {
+	                shifter = (UInt16)((current & 0x0F) << 8);
+	                offset += 4;
+	
+	                current = stream.ReadByte();
+	                if (current == -1)
+	                {
+	                    yield break;
+	                }
+	                shifter |= (UInt16)(current & 0xFF);
+	                offset += 8;
+	            }
+	            if (0 != (shifter & 0x0800))
+	                shifter |= 0xF000;
+	
+	            sample[axis] = (Int16)shifter / ACCELERATION_SCALE_FACTOR;
+	        }
+	
+	        //round to 3 decimal places
+	        sample[0] = Math.Round(sample[0], 3, MidpointRounding.AwayFromZero);
+	        sample[1] = Math.Round(sample[1], 3, MidpointRounding.AwayFromZero);
+	        sample[2] = Math.Round(sample[2], 3, MidpointRounding.AwayFromZero);
+	
+	        yield return
+	            new AccelerationSample(sample[1], sample[0], sample[2],
+	                FirstSample.AddTicks(milliSeconds*TimeSpan.TicksPerMillisecond));
+	
+	        milliSeconds += timestampHelper.Next();
+	    }
+	}

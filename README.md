@@ -100,6 +100,10 @@ The .gt3x file is a zip archive contains several files needed to parse activity 
 10. Open a stream connection to the extracted activity.bin file from #5 and [parse the activity data](fileformats/activity.bin.md).
 11. Optional: Open a stream connection to the extracted lux.bin file from #5 and [parse the light data](fileformats/lux.bin.md).
 
+## Source Code Example
+
+We've included a [sample C# library](/src/GT3X.Parsing.Library) showing how to parse a .gt3x file. In addition, we've added a [UI tool](/src/GT3X.Parsing.Examples) that lets you select a .gt3x file and export activity and lux data into CSV or JSON formats.
+
 ## Tools Used to Prepare Documentation and Library ##
 - [MarkdownPad](http://markdownpad.com/ "MarkdownPad site") for documentation
 - [LinqPad](http://www.linqpad.net/ "Linqpad site") for quick C# parsing
