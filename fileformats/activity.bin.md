@@ -2,7 +2,7 @@
 
 The activity.bin file is a binary file that stores activity data from the device.
 
-Activity data is stored continuously for every sample the device records.  Each sample contains all three axis of data in the following order: **y-axis, x-axis, and z-axis**. 
+Activity data is stored continuously for every sample the device records.  Each sample contains all three axis of data in the following order: [**y-axis, x-axis, and z-axis**](https://help.theactigraph.com/entries/49654814 "axis information website"). 
 
 To help conserve space, activity samples are bit-packed. A single 3-axis sample takes up 4.5 bytes of data (1.5 bytes per axis). To parse this data, you will have to portion the byte data into [nibbles](http://en.wikipedia.org/wiki/Nibble "Nibble").
 
