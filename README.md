@@ -96,7 +96,7 @@ The .gt3x file is a zip archive contains several files needed to parse activity 
 6. Verify the serial number in the info.txt file starts with either "NEO" or "MRA"
 7. Parse and save the sample rate from the info.txt file (it's stored in Hz)
 8. Parse and save the start date from the info.txt file (it's stored in [.NET Ticks](technical.md))
-9. Optional: calculate total number of samples by multiplying the file size (in bytes) of the activity.bin file with 8 (bits per byte) and then dividing by 36 (bits per sample).
+9. Optional: calculate total number of samples by multiplying the file size (in bytes) of the activity.bin file by 8 (bits per byte) and then dividing by 36 (bits per sample).
 10. Open a stream connection to the extracted activity.bin file from #5 and [parse the activity data](fileformats/activity.bin.md).
 11. Optional: Open a stream connection to the extracted lux.bin file from #5 and [parse the light data](fileformats/lux.bin.md).
 
