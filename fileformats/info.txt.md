@@ -64,11 +64,11 @@ The items are stored as "{key}: {value}" without the quotes.
 ## Sample File
 
     Serial Number: NEO1C16110020
-    Firmware: 2.2.0
-    Battery Voltage: 4.25
-    Sample Rate: 30
-    Start Date: 634556532600000000
-    Stop Date: 0
-    Download Date: 634570285571111563
-    Board Revision: 2
-    Subject Name: josfew2342
+	Firmware: 2.2.0
+	Battery Voltage: 4.25
+	Sample Rate: 30
+	Start Date: 634556532600000000
+	Stop Date: 0
+	Download Date: 634570285571111563
+	Board Revision: 2
+	Subject Name: josfew2342
