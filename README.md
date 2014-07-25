@@ -11,6 +11,8 @@
 
 This documentation and sample library provide information on getting activity data out of [ActiGraph](http://www.actigraphcorp.com/ "ActiGraph site") .gt3x files that were used in the [NHANES](http://www.cdc.gov/nchs/nhanes.htm) project. 
 
+This documentation and library are valid for .gt3x files downloaded from GT3X+ devices with serial numbers that start with "NEO" or ActiSleep+ devices with serial numbers that start with "MRA." The devices must have a firmware version of 2.5.0 or earlier. Files that don't fall under these conditions have a different format and are not parsable using the sample library. 
+
 ## File Format
 
 The .gt3x file is a zip archive contains several files needed to parse activity data. Click on a file for detailed information.
