@@ -108,6 +108,13 @@ The .gt3x file is a zip archive contains several files needed to parse activity 
 
 We've included a [sample C# library](/src/GT3X.Parsing.Library) showing how to parse a .gt3x file. In addition, we've added a [UI tool](/src/GT3X.Parsing.Examples) that lets you select a .gt3x file and export activity and lux data into CSV or JSON formats.
 
+## Testing Tool
+The project also includes a .NET 4.0 GUI application built on the GT3X.Parsing.Library that provides a quick way to load .gt3x files and export activity and lux data to CSV or JSON format.
+
+Pre-built releases are found in the [release section of this repository](https://github.com/actigraph/NHANES-GT3X-File-Format/releases). 
+
+![](https://cloud.githubusercontent.com/assets/1696540/3758819/d9b35a1a-1850-11e4-8c8f-3c13022775c8.png)
+
 ## Tools Used to Prepare Documentation and Library ##
 - [MarkdownPad](http://markdownpad.com/ "MarkdownPad site") for documentation
 - [LinqPad](http://www.linqpad.net/ "Linqpad site") for quick C# parsing
