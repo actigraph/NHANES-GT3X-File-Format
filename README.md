@@ -113,7 +113,7 @@ The project also includes a .NET 4.0 GUI application built on the GT3X.Parsing.L
 
 Pre-built releases are found in the [release section of this repository](https://github.com/actigraph/NHANES-GT3X-File-Format/releases). 
 
-![](https://cloud.githubusercontent.com/assets/1696540/3758819/d9b35a1a-1850-11e4-8c8f-3c13022775c8.png)
+![](https://cloud.githubusercontent.com/assets/1696540/3758915/74b1e3fa-1852-11e4-8872-a525a8dee344.png)
 
 ## Tools Used to Prepare Documentation and Library ##
 - [MarkdownPad](http://markdownpad.com/ "MarkdownPad site") for documentation
