@@ -8,13 +8,14 @@ To help conserve space, activity samples are bit-packed. A single 3-axis sample 
 
 The activity samples are encoded as 12-bit [two’s complement values](http://en.wikipedia.org/wiki/Two’s_complement "Two's Complement Wikipedia Page"). Two’s complement is the standard signed integer encoding used in modern architectures.
 
-To convert the 12-bit values to 16-bit signed integers (Int16) for use, they must be [sign-extended](http://en.wikipedia.org/wiki/Sign_extension "Sign Extension wikipedia page").
+To convert the 12-bit values to 16-bit signed integers (Int16) for use, they must be [sign-extended](http://en.wikipedia.org/wiki/Sign_extension "Sign Extension wikipedia page"). Endianness doesn’t exactly apply for 12-bit values, but it is basically big-endian. In other words, the bits are in order from most-significant to least-significant.
 
-Endianness doesn’t exactly apply for 12-bit values, but it is basically big-endian. In other words, the bits are in order from most-significant to least-significant.
+**Note: Once sign-extended, activity values will only fall between the interval of -2046 and 2046. The remaining values (-2048, -2047, and 2047) are not valid and do not occur in the data stream. This prevents the resultant Gs from being above +6 Gs and below -6 Gs**
 
 ## Special Conditions for Activity Values ##
 1. If an activity value is greater than 2047, you need to bitwise OR it with 0xF000 (or just add 61440 to the value). This is the sign-extension from above.
 2. If there are an odd number of samples, the last nibble of data is not used in parsing. See the the last Z-axis in the example below.
+
 
 ## Scaling Activity Values ##
 Once a sample has been unpacked and the special conditions are accounted for, we must:
