@@ -63,7 +63,7 @@ The items are stored as "{key}: {value}" without the quotes.
 
 ## Sample File
 
-```
+```CSS
 Serial Number: NEO1C16110020
 Firmware: 2.2.0
 Battery Voltage: 4.25
