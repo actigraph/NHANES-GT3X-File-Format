@@ -18,6 +18,7 @@ This documentation and library are valid for .gt3x files downloaded from GT3X+ d
 ## Invalid .gt3x Files ##
 
 This documentation is **INVALID** for .gt3x files downloaded from the following devices:
+
 * GT3X+ (serial numbers starting with NEO and firmware 3.0 and higher)
 * wGT3X+ (serial numbers starting with CLE)
 * wGT3X-BT (serial numbers starting with MOS0 and MOS2)
