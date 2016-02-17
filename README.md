@@ -15,6 +15,19 @@ This documentation and sample library provide information on getting activity da
 
 This documentation and library are valid for .gt3x files downloaded from GT3X+ devices with serial numbers that start with "NEO" or ActiSleep+ devices with serial numbers that start with "MRA." The devices must have a firmware version of 2.5.0 or earlier. Files that don't fall under these conditions have a different format and are not parsable using the sample library. 
 
+## Invalid .gt3x Files ##
+
+This documentation is **INVALID** for .gt3x files downloaded from the following devices:
+* GT3X+ (serial numbers starting with NEO and firmware 3.0 and higher)
+* wGT3X+ (serial numbers starting with CLE)
+* wGT3X-BT (serial numbers starting with MOS0 and MOS2)
+* ActiSleep+ (serial numbers starting with MRA and firmware 3.0 and higher)
+* wActiSleep+ (serial numbers starting with MOS3
+* wActiSleep-BT (serial numbers starting with MOS4)
+* GT9X Link (serial numbers starting with TAS) 
+
+ Please see this GitHub repo for more information on parsing these files: https://github.com/actigraph/GT3X-File-Format
+
 ## File Format
 
 The .gt3x file is a zip archive contains several files needed to parse activity data. Click on a file for detailed information.
