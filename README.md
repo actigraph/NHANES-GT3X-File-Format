@@ -26,8 +26,8 @@ This documentation is **INVALID** for .gt3x files downloaded from the following 
 * wActiSleep+ (serial numbers starting with MOS3
 * wActiSleep-BT (serial numbers starting with MOS4)
 * GT9X Link (serial numbers starting with TAS) 
-
- Please see this GitHub repo for more information on parsing these files: https://github.com/actigraph/GT3X-File-Format
+ 
+Please see this GitHub repo for more information on parsing these files: https://github.com/actigraph/GT3X-File-Format
 
 ## File Format
 
